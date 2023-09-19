@@ -1,4 +1,7 @@
 .App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -26,6 +29,23 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.input {
+  margin-right: 10px;
+}
+
+.select {
+  margin-right: 10px;
+}
+
+.form {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {

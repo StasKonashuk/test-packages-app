@@ -39,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "snmt-button": "^1.0.27",
+    "snmt-input": "^1.0.27",
+    "snmt-select": "^1.0.5"
   }
 }
