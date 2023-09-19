@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FormEventHandler, useState } from "react";
 
 import { Button } from "snmt-button";
 import { Input } from "snmt-input";
@@ -9,6 +9,8 @@ import "./App.css";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState("");
+  const [showSubmitValues, setShowSubmitValues] = useState(false);
+  const [formData, setFormData] = useState("");
 
   const selectOptions = [
     {
@@ -35,9 +37,21 @@ function App() {
     console.log(e.target);
     setSelectValue(e.target.value);
   };
+
+  const onSubmitFormHandler: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    setShowSubmitValues((prev) => !prev);
+    setFormData((prev) => {
+      if (prev) {
+        return "";
+      } else {
+        return JSON.stringify({ inputValue, selectValue });
+      }
+    });
+  };
   return (
     <div className="App">
-      <form className="form">
+      <form className="form" onSubmit={onSubmitFormHandler}>
         <Input
           name="Name"
           className="input"
@@ -56,8 +70,14 @@ function App() {
           onChange={onSelectChangeHandler}
         />
 
-        <Button borderRadius="10px" secondary value="Save" />
+        <Button
+          borderRadius="10px"
+          secondary
+          value={showSubmitValues ? "Reset" : "Save"}
+          type="submit"
+        />
       </form>
+      {showSubmitValues && formData && <p>{formData}</p>}
     </div>
   );
 }
