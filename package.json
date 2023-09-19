@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,8 +43,10 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "snmt-button": "^1.0.27",
     "snmt-input": "^1.0.27",
     "snmt-select": "^1.0.5"
-  }
+  },
+  "homepage": "http://StasKonashuk.github.io/test-packages-app"
 }
