@@ -3,6 +3,7 @@ import React, { ChangeEvent, FormEventHandler, useState } from "react";
 import { Button } from "snmt-button";
 import { Input } from "snmt-input";
 import { Select } from "snmt-select";
+import { IconButton } from "snmt-icon-button";
 
 import "./App.css";
 
@@ -77,6 +78,8 @@ function App() {
           value={showSubmitValues ? "Reset" : "Save"}
           type="submit"
         />
+
+        <IconButton>🚀</IconButton>
       </form>
       {showSubmitValues && formData && <p>{formData}</p>}
     </div>
